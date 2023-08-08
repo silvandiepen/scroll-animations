@@ -2,21 +2,20 @@
   <div :class="classes">
     <div :class="bemm('column')">
       <ul :class="bemm('list')">
-        <li :class="bemm('item')" v-for="image in images[0]">
+        <li :class="bemm('item')" v-for="image in group(0)">
+          <img :class="bemm('image')" :src="image.src" />
+        </li>
+      </ul>
+    </div> <div :class="bemm('column')">
+      <ul :class="bemm('list')">
+        <li :class="bemm('item')" v-for="image in group(1)">
           <img :class="bemm('image')" :src="image.src" />
         </li>
       </ul>
     </div>
     <div :class="bemm('column')">
       <ul :class="bemm('list')">
-        <li :class="bemm('item')" v-for="image in images[1]">
-          <img :class="bemm('image')" :src="image.src" />
-        </li>
-      </ul>
-    </div>
-    <div :class="bemm('column')">
-      <ul :class="bemm('list')">
-        <li :class="bemm('item')" v-for="image in images[2]">
+        <li :class="bemm('item')" v-for="image in group(2)">
           <img :class="bemm('image')" :src="image.src" />
         </li>
       </ul>
@@ -28,7 +27,7 @@ import { computed } from "vue";
 import { useBemm } from "bemm";
 import { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   images: {
     type: Array as PropType<
       {
@@ -37,6 +36,10 @@ defineProps({
     >,
   },
 });
+
+const group = (index:number): {src: string}[] =>{
+    return (props.images && props.images[index]) || []
+}
 
 const bemm = useBemm("image-columns");
 
