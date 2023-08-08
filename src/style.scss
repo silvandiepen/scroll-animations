@@ -1,0 +1,33 @@
+#app {
+  padding-top: 80vh;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+body{
+  scroll-behavior: smooth;
+}
+
+.content,
+.reveal,
+.gallery,
+.image-list {
+  & + .content,
+  & + .reveal,
+  & + .gallery,
+  & + .image-list {
+    margin-top: 4vw;
+  }
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
