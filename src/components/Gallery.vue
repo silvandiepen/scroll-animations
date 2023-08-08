@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
-    <ul :class="bemm('list')">     
-       <li  v-if="intro" :class="[bemm('item'),bemm('item', 'intro')]">
+    <ul :class="bemm('list')">
+      <li v-if="intro" :class="[bemm('item'), bemm('item', 'intro')]">
         <h3>{{ intro }}</h3>
       </li>
 
@@ -26,8 +26,8 @@ defineProps({
   },
   intro: {
     type: String,
-    default: ""
-  }
+    default: "",
+  },
 });
 
 const bemm = useBemm("gallery");
@@ -40,6 +40,9 @@ const classes = computed(() => {
 <style lang="scss">
 :root {
   --carousel-image-size: 240px;
+}
+body{
+  width: 100vw; overflow-x: hidden;
 }
 .gallery {
   background-color: black;
@@ -59,9 +62,8 @@ const classes = computed(() => {
     overflow-x: hidden;
   }
   &__list {
-    
-    position: sticky; 
-    top: 0; 
+    position: sticky;
+    top: 0;
     height: 100vh;
     width: 250vmax;
     will-change: transform;
@@ -80,18 +82,19 @@ const classes = computed(() => {
     width: auto;
     max-width: 100%;
     object-fit: cover;
-    &--intro{
-
+    &--intro {
       min-width: 50vw;
       color: white;
       padding: 4vw;
       font-size: 2vw;
-      display: flex; align-items: center; justify-content: center; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
   &__image {
-    border-radius: .5em;
+    border-radius: 0.5em;
   }
 }
 @keyframes move {
