@@ -30,7 +30,7 @@ const classes = computed(() => {
 
 <style lang="scss">
 .progress {
-  z-index: 5;
+  z-index: 6;
   background-color: rgba(0, 0, 0, 0.25);
   width: 100vw;
   position: fixed;
