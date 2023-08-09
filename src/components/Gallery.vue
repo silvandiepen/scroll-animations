@@ -82,6 +82,7 @@ body{
     width: auto;
     max-width: 100%;
     object-fit: cover;
+    
     &--intro {
       min-width: 50vw;
       color: white;
@@ -94,7 +95,7 @@ body{
   }
 
   &__image {
-    border-radius: 0.5em;
+    max-height: 80vh; border-radius: 0.5em;
   }
 }
 @keyframes move {

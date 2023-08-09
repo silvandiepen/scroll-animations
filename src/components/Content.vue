@@ -1,25 +1,40 @@
 <template>
   <div :class="classes">
-    <slot></slot>
+    <div :class="bemm('container')">
+    <slot></slot></div>
   </div>
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useBemm } from "bemm";
 
+const props = defineProps({
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+});
+
 const bemm = useBemm("content");
 
 const classes = computed(() => {
-  return [bemm()];
+  return [bemm(), props.dark ? bemm(null, "dark") : bemm(null, "light")];
 });
 </script>
 
 <style lang="scss">
 .content {
   width: 100%;
-  max-width: 96ch;
-  margin: auto;
+  padding: 4vw 0; 
 
+  &__container {
+    max-width: 96ch;
+    margin: auto;
+  }
+  &--dark {
+    background-color: #111;
+    color: white;
+  }
   p,
   .reveal {
     line-height: 1.5;
@@ -36,13 +51,14 @@ const classes = computed(() => {
     border-radius: 0.5em;
   }
 
-  p {
+  p,h2,h3 {
+    line-height: 1.75;
     transform: scale(0.8);
 
     view-timeline-name: --revealing-paragraph;
     view-timeline-axis: block;
 
-    animation: cubic-bezier(0,.75,.5,1.5) paragraph both;
+    animation:  linear paragraph both;
     animation-timeline: --revealing-paragraph;
     animation-range: entry 0% cover 25%;
 

@@ -2,8 +2,13 @@
   <div :class="classes">
     <ul :class="bemm('list')">
       <li :class="bemm('item')" v-for="image in images">
+        <figure :class="bemm('figure')">
         <img :class="bemm('image')" :src="image.src" />
-      </li>
+    </figure>  <figcaption :class="bemm('caption')" >
+        <h3>{{ image.title }}</h3>
+        <p>{{ image.description  }}</p></figcaption>
+
+         </li>
     </ul>
   </div>
 </template>
@@ -17,6 +22,8 @@ defineProps({
     type: Array as PropType<
       {
         src: string;
+        description: string;
+        title: string;
       }[]
     >,
   },
@@ -35,9 +42,10 @@ const classes = computed(() => {
 }
 .image-list {
   &__list {
-gap: 2em; 
-display: flex; flex-direction: column;
-}
+    gap: 2em;
+    display: flex;
+    flex-direction: column;
+  }
   &__item {
     animation: itemIn linear forwards, itemOut linear forwards;
     animation-timeline: view();
@@ -55,11 +63,41 @@ display: flex; flex-direction: column;
   &__image {
     display: block;
     max-height: 100%;
-    border-radius: .5em;
+    border-radius: 0.5em;
     height: 500px;
+  }
+  &__caption{
+    width: 320px;    
+    animation: captionIn linear forwards, captionOut linear forwards;
+    animation-timeline: view();
+    animation-range: entry, exit;
+    p{
+        opacity: .75;
+        line-height: 1.75;
+    }
   }
 }
 
+@keyframes captionIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes captionOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
 @keyframes itemIn {
   0% {
     opacity: 0;
