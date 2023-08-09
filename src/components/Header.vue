@@ -64,15 +64,15 @@ const classes = computed(() => {
     top: -1rem;
     width: calc(100% + 2rem);
     height: calc(100% + 2rem);
-    background-color: #666;
-    background-size: cover;
-    background-position: 0 50%;
-    background-image: url(https://images.unsplash.com/photo-1595608216441-abc4557df27d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80);
-    animation: headerImage ease-in-out both;
-    animation-timeline: scroll();
-    animation-range: 0 50vh;
-    filter:blur(0);
-    opacity: 1;
+    background-color: #222;
+    // background-position: 0 50%;
+    // background-size: cover;
+    // background-image: url(https://images.unsplash.com/photo-1595608216441-abc4557df27d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80);
+    // animation: headerImage ease-in-out both;
+    // animation-timeline: scroll();
+    // animation-range: 0 50vh;
+    // filter:blur(0);
+    // opacity: 1;
   }
   h1 {
     text-shadow: 4px 4px 0 black, 4px 4px 100px black;
@@ -100,16 +100,16 @@ text-align: left;    transform: translateX(-50%);
     text-align: left;
   }
 }
-@keyframes headerImage {
-  to {
-    background-position: 0 50%;
-    filter:blur(10px);
-    opacity: .5;
-  }
-}
+// @keyframes headerImage {
+//   to {
+//     background-position: 0 50%;
+//     filter:blur(10px);
+//     opacity: .5;
+//   }
+// }
 @keyframes headerTitle {
   to {
-    font-size: 1.5em;
+    font-size: 1.25em;
     left: 1em;
     transform: translateX(0%);
   }
